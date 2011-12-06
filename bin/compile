@@ -63,7 +63,7 @@ for file in * ; do
    if [ -d $file ] ; then
        if [ -e $file/conf/dependencies.yml ] ; then
            echo -n "       Building submodule $file..."
-           (cd $file ; $PLAY_PATH/play deps --sync -Duser.home=$BUILD_DIR && $PLAY_PATH/play build-module -Duser.home=$BUILD_DIR) | sed -u 's/^/       /'
+           (cd $file ; $CACHE_DIR/$PLAY_PATH/play deps --sync -Duser.home=$BUILD_DIR && $CACHE_DIR/$PLAY_PATH/play build-module -Duser.home=$BUILD_DIR) | sed -u 's/^/       /'
            echo "done"
        fi
    fi
